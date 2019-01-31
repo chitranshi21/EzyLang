@@ -1,0 +1,37 @@
+<idea-plugin>
+    <id>org.jetbrains</id>
+    <name>Hello Action Project</name>
+    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <description><![CDATA[
+    Enter short description for your plugin here.<br>
+    <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <applicationConfigurable groupId="tools" displayName="EzLang Plugin" id="preferences.EzLang" instance="Configuration.ConfigHolder" />
+        <applicationService serviceInterface="Configuration.ConfigDTO" serviceImplementation="Configuration.ConfigDTO"/>
+    </extensions>
+    <actions>
+        <group id="EzLang.SampleMenu" text="_Sample Menu" description="Sample menu">
+            <add-to-group group-id="MainMenu" anchor="last"  />
+            <action id="EzLang.Textboxes" class="Actions.TextBoxes" text="Text _Boxes" description="A test menu item" />
+        </group>
+        <action id="generateinnerbuilder" class="Actions.ContextMenuOption" text="Translate"
+                description="Plugin Description">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl t"/>
+            <keyboard-shortcut keymap="Mac OS X" first-keystroke="shift ctrl t"/>
+            <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="shift ctrl t"/>
+        </action>
+    </actions>
+</idea-plugin>
